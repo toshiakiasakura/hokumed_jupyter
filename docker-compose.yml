@@ -10,7 +10,7 @@ services:
         dockerfile: ./Dockerfile
 
     ports:
-      - "8936:8888"
+      - "${HOST_PORT-8936}:8888"
 
     volumes:
       - .:/workdir
