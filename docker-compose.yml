@@ -3,17 +3,21 @@ services:
   lab:
     image: hokumed-jupyter
 
-    container_name: hokumed_container
+    container_name: hokumed-jupyter_container
 
     build:
         context: .
         dockerfile: ./Dockerfile
 
     ports:
-      - "${HOST_PORT-8936}:8888"
+      - "${HOST_PORT-8888}:8888"
+
+    environment:
+      - PASSWORD=${PASSWORD}
 
     volumes:
-      - .:/workdir
+      - ./notebook:/workdir
+      - ./config:/home/jovyan/.jupyter
 
     command: start.sh jupyter lab
 
