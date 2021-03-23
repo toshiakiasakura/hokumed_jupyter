@@ -12,9 +12,6 @@ services:
     ports:
       - "${HOST_PORT-8888}:8888"
 
-    environment:
-      - PASSWORD=${PASSWORD}
-
     volumes:
       - ./notebook:/workdir
       - ./config:/home/jovyan/.jupyter
